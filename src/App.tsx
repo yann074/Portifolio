@@ -66,7 +66,7 @@ function App() {
             <div className="flex flex-col items-center md:items-start w-full md:w-1/2 text-lg mb-6 md:mb-0">
               <div className="mb-4">
                 <h1 className="text-4xl font-bold">Yann Smith</h1>
-                <h4 className="text-xl text-gray-600">Desenvolvedor Front-end</h4>
+                <h4 className="text-xl text-gray-600">Desenvolvedor Full Stack</h4>
               </div>
               <p className="text-lg italic">"Transformando Ideias em Sites"</p>
 
@@ -96,13 +96,13 @@ function App() {
         <section>
           <div data-aos="fade-right" className="w-4/5 mx-auto text-center text-lg md:text-xl" id='sobremim'>
             <section className="space-y-6">
-              <div className="flex justify-center items-center gap-2 ">
+              <div className="flex justify-center items-center gap-2  mt-20">
                 <GraduationCap size={32} className="text-gray-800" />
                 <h1 className="text-4xl font-bold">Sobre mim</h1>
               </div>
               <div className="space-y-4">
                 <p>
-                  Olá! Sou um desenvolvedor FullStack e residente na cidade de Feira de Santana,
+                  Olá! Sou um desenvolvedor Full Stack e residente na cidade de Feira de Santana,
                   BA - Brasil. Atualmente, estou cursando o quinto semestre
                   no curso de Análise e Desenvolvimento de Sistemas na Universidade Nobre (Unifan).
                 </p>
