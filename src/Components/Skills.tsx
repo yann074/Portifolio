@@ -16,24 +16,25 @@ const skills = [
 
 function Skills() {
   return (
-    <div data-aos="fade-right" className="p-5 text-center" id="linguagens">
-      <h2 className="text-2xl font-bold mb-5 flex justify-center items-center gap-2">
-        LINGUAGENS
-      </h2>
-      <section className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center">
-        {skills.map((skill) => (
-          <div
-            key={skill.name}
-            className="flex flex-col items-center justify-center gap-2 bg-transparent border border-white/30 rounded-lg p-3  transform transition-transform hover:scale-105"
-          >
-            <div className="w-16 h-16 bg-gray-200 rounded-full flex justify-center items-center overflow-hidden">
-              {skill.icon}
-            </div>
-            <h4 className="text-lg font-medium">{skill.name}</h4>
-          </div>
-        ))}
-      </section>
-    </div>
+<div data-aos="fade-right" className="p-5 text-center dark:bg-black" id="linguagens">
+  <h2 className="text-2xl font-bold mb-5 flex justify-center items-center gap-2 dark:text-white">
+    LINGUAGENS
+  </h2>
+  <section className="grid grid-cols-2 md:grid-cols-4 gap-4 justify-items-center">
+    {skills.map((skill) => (
+      <div
+        key={skill.name}
+        className="flex flex-col w-35 items-center justify-center gap-2 bg-transparent border border-white/30 rounded-lg p-3 transform transition-transform hover:scale-105 dark:border-gray-600 dark:hover:bg-gray-700"
+      >
+        <div className="w-16 h-16 bg-gray-200 dark:bg-gray-600 rounded-full flex justify-center items-center overflow-hidden">
+          {skill.icon}
+        </div>
+        <h4 className="text-lg font-medium dark:text-white">{skill.name}</h4>
+      </div>
+    ))}
+  </section>
+</div>
+
   );
 }
 

@@ -20,7 +20,7 @@ function Projects() {
     {
       id: 3,
       title: "Desafio Técnico",
-      description: "Desafio técnico full stack feito para uma empresa. Acesse para ver sobre",
+      description: "Desafio técnico full stack feito para uma empresa, ultilizando Laravel e Vue. Acesse para ver sobre",
       link: "https://github.com/yann074/DesafioTecnico-MovimentacoesFinanceiras",
       link_git: "https://github.com/yann074/DesafioTecnico-MovimentacoesFinanceiras",
     },
@@ -41,7 +41,7 @@ function Projects() {
     {
       id: 6,
       title: "Tio Do Pastel",
-      description: "Lading Page feita para uma pastelaria da cidade local",
+      description: "Uma Lading Page desenvolvida para uma pastelaria da cidade local",
       link: "tiodopastel.vercel.app",
       link_git: "https://github.com/yann074/tiodopastel",
     },
@@ -49,29 +49,28 @@ function Projects() {
 
   return (
     <div>
-      <h2 className="text-4xl font-bold mt-10 pb-1 text-center flex items-center justify-center gap-3">
+      <h2 className="text-4xl font-bold mt-12 pb-1 text-center flex items-center justify-center gap-3 dark:text-white">
         <Folder size={30} />
-        Projetos 
+        Projetos
       </h2>
-
 
       <div className="flex flex-wrap justify-center gap-6 p-4">
         {projetos.map((projeto) => (
           <div
             key={projeto.id}
-            className="w-80 h-70 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105"
+            className="w-80 h-70 bg-white shadow-lg rounded-lg overflow-hidden transform transition-transform hover:scale-105 dark:bg-gray-800 dark:text-white"
             id="projetos"
           >
             <div className="p-10">
-              <h2 className="text-xl font-bold text-gray-800">{projeto.title}</h2>
-              <p className="text-sl text-gray-600 mt-2">{projeto.description}</p>
+              <h2 className="text-xl font-bold text-gray-800 dark:text-white">{projeto.title}</h2>
+              <p className="text-sm text-gray-600 mt-2 dark:text-gray-400">{projeto.description}</p>
             </div>
-            <div className="p-4 bg-gray-100 flex items-end flex-col">
+            <div className="p-4 bg-gray-100 flex items-end flex-col dark:bg-gray-700">
               <a
                 href={projeto.link}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 flex items-center gap-1 hover:text-blue-800"
+                className="text-blue-600 flex items-center gap-1 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600"
               >
                 Ver Site
                 <ArrowRight size={20} />
@@ -80,7 +79,7 @@ function Projects() {
                 href={projeto.link_git}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-blue-600 flex items-center gap-1 hover:text-blue-800"
+                className="text-blue-600 flex items-center gap-1 hover:text-blue-800 dark:text-blue-400 dark:hover:text-blue-600"
               >
                 Ver Repositório
                 <ArrowRight size={20} />
@@ -90,6 +89,7 @@ function Projects() {
         ))}
       </div>
     </div>
+
   );
 }
 
