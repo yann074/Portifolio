@@ -28,6 +28,9 @@ function App() {
             <div className="container mx-auto flex justify-between items-center">
               <a href='#' className="text-gray-800 text-2xl font-bold dark:text-white">Yann Smith</a>
 
+              <div>
+
+
               <button
                 className="text-gray-800 md:hidden focus:outline-none dark:text-white"
                 onClick={() => setIsOpen(!isOpen)}
@@ -49,7 +52,7 @@ function App() {
               </button>
 
               <div className={`md:flex items-center ${isOpen ? "block" : "hidden"}`}>
-                <ul className="md:flex md:space-x-6">
+              <ul className="md:flex md:space-x-6 space-y-4 md:space-y-0">
                   <li>
                     <a href='#sobremim' className="text-gray-800 hover:text-gray-500 dark:text-white dark:hover:text-gray-300">Sobre mim</a>
                   </li>
@@ -63,6 +66,7 @@ function App() {
                     <a href='#contato' className="bg-gray-800 text-white px-4 py-2 rounded-lg mt-4 md:mt-0 hover:bg-gray-700 dark:bg-gray-700 dark:hover:bg-gray-600">Contato</a>
                   </li>
                 </ul>
+              </div>
               </div>
             </div>
           </nav>
