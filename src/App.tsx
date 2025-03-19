@@ -6,6 +6,7 @@ import './App.css'
 import Projects from './Components/Projects';
 import Contact from './Components/Contact';
 import Skills from './Components/Skills';
+import "./App.css"
 
 function App() {
   document.documentElement.classList.toggle(
@@ -72,8 +73,8 @@ function App() {
           <div className="flex flex-col md:flex-row justify-between items-center w-4/5 mx-auto my-8 font-sans" data-aos="fade-right" id='id1'>
 
             <div className="flex flex-col items-center md:items-start w-full md:w-1/2 text-lg mb-6 md:mb-0">
-              <div className="mb-4">
-                <h1 className="text-4xl font-bold dark:text-white">Yann Smith</h1>
+              <div className="mb-4 test">
+                <h1 className="text-4xl font-bold typewriter dark:text-white">Yann Smith</h1>
                 <h4 className="text-xl text-gray-600 dark:text-white">Desenvolvedor Full Stack</h4>
               </div>
               <p className="text-lg italic dark:text-white">"Transformando Ideias em Sites"</p>
