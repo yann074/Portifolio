@@ -1,5 +1,4 @@
-import React from "react";
-import { Mail, Linkedin, Github, Download, FileText } from "lucide-react";
+import { Mail, Linkedin, Github, Download } from "lucide-react";
 import curriculo from "../../public/curriculoyannsmith.pdf"
 
 function Contact() {

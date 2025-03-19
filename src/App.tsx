@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Github, Linkedin, FileText, GraduationCap, ArrowRight } from "lucide-react";
+import { Github, Linkedin, FileText, GraduationCap } from "lucide-react";
 import yann from "./assets/yann.png"
 import curriculo from "../public/curriculoyannsmith.pdf";
 import './App.css'

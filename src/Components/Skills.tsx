@@ -1,5 +1,3 @@
-import React from "react";
-import { Languages, Code, Database, Boxes } from 'lucide-react';
 import phppg from "../assetpng/phplg.png";
 import laravelpg from "../assetpng/laravellg.png";
 import vuelg from "../assetpng/vuelg.png";
