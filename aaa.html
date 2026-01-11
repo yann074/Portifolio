@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Clima Mairi - Dashboard</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+    }
+    
+    .container {
+      background: white;
+      border-radius: 20px;
+      padding: 40px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+      max-width: 500px;
+      width: 100%;
+    }
+    
+    h1 {
+      color: #333;
+      margin-bottom: 10px;
+      font-size: 28px;
+    }
+    
+    .location {
+      color: #666;
+      margin-bottom: 30px;
+      font-size: 16px;
+    }
+    
+    .temp-main {
+      font-size: 72px;
+      font-weight: bold;
+      color: #667eea;
+      margin: 20px 0;
+    }
+    
+    .weather-desc {
+      font-size: 20px;
+      color: #666;
+      text-transform: capitalize;
+      margin-bottom: 30px;
+    }
+    
+    .details {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+      margin-top: 30px;
+    }
+    
+    .detail-item {
+      background: #f8f9fa;
+      padding: 20px;
+      border-radius: 10px;
+      text-align: center;
+    }
+    
+    .detail-label {
+      color: #666;
+      font-size: 14px;
+      margin-bottom: 5px;
+    }
+    
+    .detail-value {
+      color: #333;
+      font-size: 24px;
+      font-weight: bold;
+    }
+    
+    .alert {
+      background: #fff3cd;
+      border-left: 4px solid #ffc107;
+      padding: 15px;
+      margin-top: 20px;
+      border-radius: 5px;
+    }
+    
+    .alert.danger {
+      background: #f8d7da;
+      border-color: #dc3545;
+    }
+    
+    button {
+      background: #667eea;
+      color: white;
+      border: none;
+      padding: 12px 30px;
+      border-radius: 25px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 20px;
+      width: 100%;
+      transition: background 0.3s;
+    }
+    
+    button:hover {
+      background: #5568d3;
+    }
+    
+    .loading {
+      text-align: center;
+      color: #667eea;
+      font-size: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div id="content">
+      <div class="loading">⏳ Carregando dados do clima...</div>
+    </div>
+  </div>
+
+  <script>
+    // COLOQUE SUA API KEY AQUI
+    const API_KEY = 'c4a66cfed6cd2a122eb40b7aabf51402'; // ou use a outra que funcionou
+    const CIDADE = 'Mairi,BA,BR';
+
+    async function buscarClima() {
+      try {
+        const response = await fetch(
+          `https://api.openweathermap.org/data/2.5/weather?q=${CIDADE}&appid=${API_KEY}&units=metric&lang=pt_br`
+        );
+        
+        if (!response.ok) throw new Error('Erro ao buscar dados');
+        
+        const data = await response.json();
+        exibirClima(data);
+        
+      } catch (error) {
+        document.getElementById('content').innerHTML = `
+          <div class="alert danger">
+            <strong>❌ Erro:</strong> ${error.message}
+          </div>
+        `;
+      }
+    }
+
+    function exibirClima(data) {
+      const temp = Math.round(data.main.temp);
+      const sensacao = Math.round(data.main.feels_like);
+      const descricao = data.weather[0].description;
+      const umidade = data.main.humidity;
+      const vento = data.wind.speed;
+      
+      // Gerar alertas inteligentes
+      let alertas = '';
+      
+      if (temp > 35) {
+        alertas += `
+          <div class="alert danger">
+            🌡️ <strong>Calor Extremo!</strong> Temperatura acima de 35°C. 
+            Evite exposição solar prolongada.
+          </div>
+        `;
+      }
+      
+      if (umidade < 30) {
+        alertas += `
+          <div class="alert">
+            💧 <strong>Ar Muito Seco!</strong> Umidade em ${umidade}%. 
+            Hidrate-se constantemente e umidifique ambientes.
+          </div>
+        `;
+      }
+      
+      if (temp > 32 && umidade < 40) {
+        alertas += `
+          <div class="alert">
+            🌾 <strong>Alerta Agrícola:</strong> Condições críticas para plantações. 
+            Considere irrigação adicional.
+          </div>
+        `;
+      }
+      
+      document.getElementById('content').innerHTML = `
+        <h1>Clima em Tempo Real</h1>
+        <div class="location">📍 ${data.name}, Bahia</div>
+        
+        <div class="temp-main">${temp}°C</div>
+        <div class="weather-desc">${descricao}</div>
+        
+        <div class="details">
+          <div class="detail-item">
+            <div class="detail-label">Sensação</div>
+            <div class="detail-value">${sensacao}°C</div>
+          </div>
+          
+          <div class="detail-item">
+            <div class="detail-label">Umidade</div>
+            <div class="detail-value">${umidade}%</div>
+          </div>
+          
+          <div class="detail-item">
+            <div class="detail-label">Vento</div>
+            <div class="detail-value">${vento} m/s</div>
+          </div>
+          
+          <div class="detail-item">
+            <div class="detail-label">Pressão</div>
+            <div class="detail-value">${data.main.pressure} hPa</div>
+          </div>
+        </div>
+        
+        ${alertas}
+        
+        <button onclick="buscarClima()">🔄 Atualizar Dados</button>
+      `;
+    }
+
+    // Buscar clima ao carregar a página
+    buscarClima();
+    
+    // Atualizar automaticamente a cada 10 minutos
+    setInterval(buscarClima, 600000);
+  </script>
+</body>
+</html>
