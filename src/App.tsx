@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import type { ReactNode } from 'react';
 import { Github, Linkedin, FileText, GraduationCap, Menu, X } from "lucide-react";
 import yann from "./assets/yann.png";
 import curriculo from "../public/curriculoyannsmith.pdf";
@@ -159,7 +160,7 @@ function App() {
   );
 }
 
-function SocialButton({ href, icon, label, isDownload }) {
+function SocialButton({ href, icon, label, isDownload = false }: { href: string; icon: ReactNode; label: string; isDownload?: boolean; }) {
   return (
     <a 
       href={href} 

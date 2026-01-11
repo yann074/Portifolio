@@ -1,4 +1,3 @@
-import React from 'react';
 import { Briefcase, Calendar, ArrowRight } from 'lucide-react';
 
 type Experience = {
